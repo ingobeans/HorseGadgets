@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:saddle",
+    "minecraft:bundle"
+  ],
+  "result": {
+    "id": "lovelyanimals:horse_pocket",
+    "count": 1
+  }
+}

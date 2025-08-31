@@ -4,6 +4,7 @@
   "package": "org.ingobeans.lovelyanimals.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EntityInteract"
   ],
   "client": [
   ],
