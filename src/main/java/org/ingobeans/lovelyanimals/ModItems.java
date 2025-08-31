@@ -25,9 +25,10 @@ public class ModItems {
         return item;
     }
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.HORSE_POCKET));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.EMPTY_HORSE_POCKET));
     }
 
-    public static final Item HORSE_POCKET = register("horse_pocket", HorsePocket::new, new Item.Settings().maxCount(1));
+    public static final Item EMPTY_HORSE_POCKET = register("horse_pocket", EmptyHorsePocket::new, new Item.Settings().maxCount(1));
+    public static final Item FILLED_HORSE_POCKET = register("filled_horse_pocket", FilledHorsePocket::new, new Item.Settings().maxCount(1));
 
 }
