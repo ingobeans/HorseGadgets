@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "lovelyanimals",
+  "version": "${version}",
+  "name": "LovelyAnimals",
+  "description": "make animals lovely",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/lovelyanimals/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.ingobeans.lovelyanimals.client.LovelyAnimalsClient"
+    ],
+    "main": [
+      "org.ingobeans.lovelyanimals.LovelyAnimals"
+    ]
+  },
+  "mixins": [
+    "lovelyanimals.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
