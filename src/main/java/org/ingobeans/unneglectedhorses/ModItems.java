@@ -13,7 +13,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.ingobeans.unneglectedhorses.items.ElytraSaddle;
 import org.ingobeans.unneglectedhorses.items.EmptyHorsePocket;
