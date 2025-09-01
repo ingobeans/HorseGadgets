@@ -44,11 +44,11 @@ public class FilledHorsePocket extends Item {
     }
 
     public static void playFillSound(World world, Entity entity) {
-        world.playSound((Entity)null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+        world.playSound(null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
     }
 
     public static void playEmptySound(World world, Entity entity) {
-        world.playSound((Entity)null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_DROP_CONTENTS, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+        world.playSound(null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_DROP_CONTENTS, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
     }
 
     @Override
@@ -58,9 +58,9 @@ public class FilledHorsePocket extends Item {
             BlockHitResult blockHitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
             BlockPos blockPos = blockHitResult.getBlockPos();
 
-            HorseEntity mobEntity = EntityType.HORSE.create(serverWorld, EntityType.copier(world, itemStack, (LivingEntity)null), blockPos, SpawnReason.BUCKET, true, false);
+            HorseEntity mobEntity = EntityType.HORSE.create(serverWorld, EntityType.copier(world, itemStack, null), blockPos, SpawnReason.BUCKET, true, false);
 
-            NbtComponent nbtComponent = (NbtComponent)itemStack.getOrDefault(DataComponentTypes.BUCKET_ENTITY_DATA, NbtComponent.DEFAULT);
+            NbtComponent nbtComponent = itemStack.getOrDefault(DataComponentTypes.BUCKET_ENTITY_DATA, NbtComponent.DEFAULT);
 
             if (mobEntity != null) {
                 FilledHorsePocket.copyDataFromNbt(mobEntity,nbtComponent.copyNbt());
