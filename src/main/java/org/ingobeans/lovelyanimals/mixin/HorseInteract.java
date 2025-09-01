@@ -40,8 +40,7 @@ public abstract class HorseInteract {
                 ItemStack filledStack = new ItemStack(ModItems.FILLED_HORSE_POCKET);
                 FilledHorsePocket.copyDataToStack((HorseEntity)entity ,filledStack);
 
-                ItemStack itemStack3 = ItemUsage.exchangeStack(itemStack, player, filledStack, false);
-                player.setStackInHand(hand, itemStack3);
+                player.setStackInHand(hand, filledStack);
 
                 entity.discard();
                 cir.setReturnValue(ActionResult.SUCCESS);

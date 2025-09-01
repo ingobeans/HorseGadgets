@@ -61,7 +61,7 @@ public class FilledHorsePocket extends Item {
             }
 
         }
-        ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, user, new ItemStack(ModItems.EMPTY_HORSE_POCKET));
+        ItemStack itemStack2 = new ItemStack(ModItems.EMPTY_HORSE_POCKET);
         return ActionResult.SUCCESS.withNewHandStack(itemStack2);
     }
 }
