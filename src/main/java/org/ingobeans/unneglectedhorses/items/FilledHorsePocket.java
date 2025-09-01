@@ -1,4 +1,4 @@
-package org.ingobeans.lovelyanimals.items;
+package org.ingobeans.unneglectedhorses.items;
 
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
@@ -23,7 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import org.ingobeans.lovelyanimals.ModItems;
+import org.ingobeans.unneglectedhorses.ModItems;
 
 public class FilledHorsePocket extends Item {
     public FilledHorsePocket(Settings settings) {

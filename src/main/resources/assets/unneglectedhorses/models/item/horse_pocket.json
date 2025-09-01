@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "lovelyanimals:item/filled_horse_pocket"
+    "layer0": "unneglectedhorses:item/horse_pocket"
   }
 }

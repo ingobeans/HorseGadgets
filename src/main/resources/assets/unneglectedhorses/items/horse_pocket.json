@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "lovelyanimals:item/horse_pocket"
+    "model": "unneglectedhorses:item/horse_pocket"
   }
 }

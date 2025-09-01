@@ -1,4 +1,4 @@
-package org.ingobeans.lovelyanimals;
+package org.ingobeans.unneglectedhorses;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.DispenserBlock;
@@ -15,16 +15,16 @@ import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import org.ingobeans.lovelyanimals.items.ElytraSaddle;
-import org.ingobeans.lovelyanimals.items.EmptyHorsePocket;
-import org.ingobeans.lovelyanimals.items.FilledHorsePocket;
+import org.ingobeans.unneglectedhorses.items.ElytraSaddle;
+import org.ingobeans.unneglectedhorses.items.EmptyHorsePocket;
+import org.ingobeans.unneglectedhorses.items.FilledHorsePocket;
 
 import java.util.function.Function;
 
 public class ModItems {
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         // Create the item key.
-        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(LovelyAnimals.MOD_ID, name));
+        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(UnneglectedHorses.MOD_ID, name));
 
         // Create the item instance.
         Item item = itemFactory.apply(settings.registryKey(itemKey));

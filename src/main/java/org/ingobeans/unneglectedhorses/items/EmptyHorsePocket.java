@@ -1,4 +1,4 @@
-package org.ingobeans.lovelyanimals.items;
+package org.ingobeans.unneglectedhorses.items;
 
 import net.minecraft.item.Item;
 

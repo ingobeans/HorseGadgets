@@ -1,4 +1,4 @@
-package org.ingobeans.lovelyanimals.mixin;
+package org.ingobeans.unneglectedhorses.mixin;
 
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.HorseEntity;
@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import org.ingobeans.lovelyanimals.items.FilledHorsePocket;
-import org.ingobeans.lovelyanimals.ModItems;
+import org.ingobeans.unneglectedhorses.items.FilledHorsePocket;
+import org.ingobeans.unneglectedhorses.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

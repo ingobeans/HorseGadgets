@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "lovelyanimals",
+  "id": "unneglectedhorses",
   "version": "${version}",
-  "name": "LovelyAnimals",
-  "description": "make animals lovely",
+  "name": "UnneglectedHorses",
+  "description": "adds some fun horse mechanics and items",
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/lovelyanimals/icon.png",
+  "icon": "assets/unneglectedhorses/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "org.ingobeans.lovelyanimals.client.LovelyAnimalsClient"
+      "org.ingobeans.unneglectedhorses.client.UnneglectedHorsesClient"
     ],
     "main": [
-      "org.ingobeans.lovelyanimals.LovelyAnimals"
+      "org.ingobeans.unneglectedhorses.UnneglectedHorses"
     ]
   },
   "mixins": [
-    "lovelyanimals.mixins.json"
+    "unneglectedhorses.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

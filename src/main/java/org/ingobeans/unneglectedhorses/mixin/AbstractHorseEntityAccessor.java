@@ -1,4 +1,4 @@
-package org.ingobeans.lovelyanimals.mixin;
+package org.ingobeans.unneglectedhorses.mixin;
 
 import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.util.math.Vec3d;
