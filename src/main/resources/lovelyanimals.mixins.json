@@ -4,6 +4,9 @@
   "package": "org.ingobeans.lovelyanimals.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractHorseEntityAccessor",
+    "ElytraSaddleGliding",
+    "ElytraSaddleJumping",
     "HorseInteract"
   ],
   "client": [

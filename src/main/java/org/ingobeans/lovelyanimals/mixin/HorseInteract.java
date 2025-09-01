@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import org.ingobeans.lovelyanimals.FilledHorsePocket;
+import org.ingobeans.lovelyanimals.items.FilledHorsePocket;
 import org.ingobeans.lovelyanimals.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

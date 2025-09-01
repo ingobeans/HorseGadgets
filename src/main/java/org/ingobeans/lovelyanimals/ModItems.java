@@ -3,24 +3,22 @@ package org.ingobeans.lovelyanimals;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.ingobeans.lovelyanimals.items.ElytraSaddle;
+import org.ingobeans.lovelyanimals.items.EmptyHorsePocket;
+import org.ingobeans.lovelyanimals.items.FilledHorsePocket;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModItems {
@@ -38,6 +36,7 @@ public class ModItems {
     }
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.EMPTY_HORSE_POCKET));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.ELYTRA_SADDLE));
 
         DispenserBlock.registerBehavior(ModItems.FILLED_HORSE_POCKET, new ItemDispenserBehavior() {
             private final ItemDispenserBehavior fallback = new ItemDispenserBehavior();
@@ -50,6 +49,7 @@ public class ModItems {
         }});
     }
 
+    public static final Item ELYTRA_SADDLE = register("elytra_saddle", ElytraSaddle::new, new Item.Settings().maxCount(1).component(DataComponentTypes.EQUIPPABLE, EquippableComponent.ofSaddle()));
     public static final Item EMPTY_HORSE_POCKET = register("horse_pocket", EmptyHorsePocket::new, new Item.Settings().maxCount(1));
     public static final Item FILLED_HORSE_POCKET = register("filled_horse_pocket", FilledHorsePocket::new, new Item.Settings().maxCount(1));
 
