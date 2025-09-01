@@ -30,7 +30,7 @@ public abstract class HorseInteract {
 
                 ItemStack filledStack = new ItemStack(ModItems.FILLED_HORSE_POCKET);
                 FilledHorsePocket.playFillSound(world,player);
-                FilledHorsePocket.copyDataToStack((HorseEntity)entity ,filledStack);
+                FilledHorsePocket.writeEntityDataToItem((HorseEntity)entity ,filledStack);
 
                 player.setStackInHand(hand, filledStack);
 

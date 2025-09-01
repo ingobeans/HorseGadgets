@@ -13,6 +13,8 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.storage.NbtReadView;
 import net.minecraft.storage.NbtWriteView;
+import net.minecraft.text.Text;
+import net.minecraft.text.TextCodecs;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ErrorReporter;
 import net.minecraft.util.Hand;
@@ -28,17 +30,29 @@ public class FilledHorsePocket extends Item {
     }
 
 
-    public static void copyDataToStack(HorseEntity entity, ItemStack stack) {
+    public static void writeEntityDataToItem(HorseEntity entity, ItemStack stack) {
         NbtWriteView view = NbtWriteView.create(ErrorReporter.EMPTY);
         entity.writeData(view);
         NbtComponent.set(DataComponentTypes.BUCKET_ENTITY_DATA, stack, view.getNbt());
+        Text name = entity.getCustomName();
+        if (name != null) {
+            stack.set(DataComponentTypes.CUSTOM_NAME, name);
+        }
     }
 
-    public static void copyDataFromNbt(HorseEntity entity, NbtCompound nbt) {
+    public static void writeEntityDataFromItem(HorseEntity entity, ItemStack item) {
+        NbtComponent nbtComponent = item.getOrDefault(DataComponentTypes.BUCKET_ENTITY_DATA, NbtComponent.DEFAULT);
+        NbtCompound nbt = nbtComponent.copyNbt();
+
         // remove uuid, otherwise you can't reuse the same horse pocket instance in creative mode
         nbt.remove("UUID");
         // pos should be the new pos
         nbt.put("Pos", Vec3d.CODEC, entity.getPos());
+        // make name be derived from item stack's name rather than NBT data
+        Text name = item.getCustomName();
+        if (name != null) {
+            nbt.putNullable("CustomName", TextCodecs.CODEC, name);
+        }
         NbtReadView view = (NbtReadView)NbtReadView.create(ErrorReporter.EMPTY, entity.getRegistryManager(), nbt);
         entity.readData(view);
     }
@@ -60,10 +74,10 @@ public class FilledHorsePocket extends Item {
 
             HorseEntity mobEntity = EntityType.HORSE.create(serverWorld, EntityType.copier(world, itemStack, null), blockPos, SpawnReason.BUCKET, true, false);
 
-            NbtComponent nbtComponent = itemStack.getOrDefault(DataComponentTypes.BUCKET_ENTITY_DATA, NbtComponent.DEFAULT);
 
             if (mobEntity != null) {
-                FilledHorsePocket.copyDataFromNbt(mobEntity,nbtComponent.copyNbt());
+
+                FilledHorsePocket.writeEntityDataFromItem(mobEntity,itemStack);
 
                 world.spawnEntity(mobEntity);
                 mobEntity.playAmbientSound();
