@@ -7,9 +7,10 @@ import net.minecraft.entity.passive.HorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsage;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.storage.NbtReadView;
 import net.minecraft.storage.NbtWriteView;
 import net.minecraft.util.ActionResult;
@@ -42,6 +43,14 @@ public class FilledHorsePocket extends Item {
         entity.readData(view);
     }
 
+    public static void playFillSound(World world, Entity entity) {
+        world.playSound((Entity)null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+    }
+
+    public static void playEmptySound(World world, Entity entity) {
+        world.playSound((Entity)null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_DROP_CONTENTS, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
+    }
+
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
@@ -61,6 +70,7 @@ public class FilledHorsePocket extends Item {
             }
 
         }
+        playEmptySound(world,user);
         ItemStack itemStack2 = new ItemStack(ModItems.EMPTY_HORSE_POCKET);
         return ActionResult.SUCCESS.withNewHandStack(itemStack2);
     }

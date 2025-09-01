@@ -38,6 +38,7 @@ public abstract class HorseInteract {
             if (entity.isAlive()) {
 
                 ItemStack filledStack = new ItemStack(ModItems.FILLED_HORSE_POCKET);
+                FilledHorsePocket.playFillSound(world,player);
                 FilledHorsePocket.copyDataToStack((HorseEntity)entity ,filledStack);
 
                 player.setStackInHand(hand, filledStack);
