@@ -9,9 +9,9 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(AbstractHorseEntity.class)
     public interface AbstractHorseEntityAccessor {
     @Accessor("jumpStrength")
-    public float getJumpStrength();
+    float getJumpStrength();
     @Accessor("jumpStrength")
-    public void setJumpStrength(float jumpStrength);
+    void setJumpStrength(float jumpStrength);
     @Invoker("jump")
-    public void invokeJump(float strength, Vec3d movementInput);
+    void invokeJump(float strength, Vec3d movementInput);
     }

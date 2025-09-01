@@ -39,10 +39,8 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.ELYTRA_SADDLE));
 
         DispenserBlock.registerBehavior(ModItems.FILLED_HORSE_POCKET, new ItemDispenserBehavior() {
-            private final ItemDispenserBehavior fallback = new ItemDispenserBehavior();
-
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                BlockPos blockPos = pointer.pos().offset((Direction)pointer.state().get(DispenserBlock.FACING));
+                BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
                 World world = pointer.world();
                 ((FilledHorsePocket)stack.getItem()).emptyPocket(world,stack,blockPos);
                 return new ItemStack(ModItems.EMPTY_HORSE_POCKET);

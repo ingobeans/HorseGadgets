@@ -80,7 +80,7 @@ public class FilledHorsePocket extends Item {
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         playEmptySound(world,user);
-        if (world instanceof ServerWorld serverWorld) {
+        if (world instanceof ServerWorld) {
             BlockHitResult blockHitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
             BlockPos blockPos = blockHitResult.getBlockPos();
             this.emptyPocket(world,itemStack,blockPos);
