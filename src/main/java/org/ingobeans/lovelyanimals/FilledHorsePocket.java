@@ -65,26 +65,26 @@ public class FilledHorsePocket extends Item {
         world.playSound(null, entity.getBlockPos(), SoundEvents.ITEM_BUNDLE_DROP_CONTENTS, SoundCategory.PLAYERS, 0.8F, 0.8F + entity.getWorld().getRandom().nextFloat() * 0.4F);
     }
 
+    public void emptyPocket(World world, ItemStack itemStack, BlockPos pos) {
+        HorseEntity mobEntity = EntityType.HORSE.create((ServerWorld)world, EntityType.copier(world, itemStack, null), pos, SpawnReason.BUCKET, true, false);
+
+        if (mobEntity != null) {
+            FilledHorsePocket.writeEntityDataFromItem(mobEntity,itemStack);
+            world.spawnEntity(mobEntity);
+            mobEntity.playAmbientSound();
+        }
+    }
+
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
+        playEmptySound(world,user);
         if (world instanceof ServerWorld serverWorld) {
             BlockHitResult blockHitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
             BlockPos blockPos = blockHitResult.getBlockPos();
-
-            HorseEntity mobEntity = EntityType.HORSE.create(serverWorld, EntityType.copier(world, itemStack, null), blockPos, SpawnReason.BUCKET, true, false);
-
-
-            if (mobEntity != null) {
-
-                FilledHorsePocket.writeEntityDataFromItem(mobEntity,itemStack);
-
-                world.spawnEntity(mobEntity);
-                mobEntity.playAmbientSound();
-            }
+            this.emptyPocket(world,itemStack,blockPos);
 
         }
-        playEmptySound(world,user);
         ItemStack itemStack2 = new ItemStack(ModItems.EMPTY_HORSE_POCKET);
         return ActionResult.SUCCESS.withNewHandStack(itemStack2);
     }

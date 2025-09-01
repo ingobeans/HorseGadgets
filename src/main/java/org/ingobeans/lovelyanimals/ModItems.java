@@ -1,14 +1,26 @@
 package org.ingobeans.lovelyanimals;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.ItemDispenserBehavior;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPointer;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModItems {
@@ -26,6 +38,16 @@ public class ModItems {
     }
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.EMPTY_HORSE_POCKET));
+
+        DispenserBlock.registerBehavior(ModItems.FILLED_HORSE_POCKET, new ItemDispenserBehavior() {
+            private final ItemDispenserBehavior fallback = new ItemDispenserBehavior();
+
+            public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
+                BlockPos blockPos = pointer.pos().offset((Direction)pointer.state().get(DispenserBlock.FACING));
+                World world = pointer.world();
+                ((FilledHorsePocket)stack.getItem()).emptyPocket(world,stack,blockPos);
+                return new ItemStack(ModItems.EMPTY_HORSE_POCKET);
+        }});
     }
 
     public static final Item EMPTY_HORSE_POCKET = register("horse_pocket", EmptyHorsePocket::new, new Item.Settings().maxCount(1));
