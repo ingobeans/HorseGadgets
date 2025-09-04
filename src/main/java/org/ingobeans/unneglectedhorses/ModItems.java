@@ -1,8 +1,12 @@
 package org.ingobeans.unneglectedhorses;
 
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.impl.client.rendering.EntityModelLayerImpl;
+import net.fabricmc.fabric.mixin.client.rendering.EntityModelLayersAccessor;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.item.*;
@@ -17,7 +21,9 @@ import net.minecraft.world.World;
 import org.ingobeans.unneglectedhorses.items.ElytraSaddle;
 import org.ingobeans.unneglectedhorses.items.EmptyHorsePocket;
 import org.ingobeans.unneglectedhorses.items.FilledHorsePocket;
+import org.ingobeans.unneglectedhorses.models.ElytraSaddleModel;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 public class ModItems {
@@ -36,6 +42,7 @@ public class ModItems {
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.EMPTY_HORSE_POCKET));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.ELYTRA_SADDLE));
+
 
         DispenserBlock.registerBehavior(ModItems.FILLED_HORSE_POCKET, new ItemDispenserBehavior() {
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
