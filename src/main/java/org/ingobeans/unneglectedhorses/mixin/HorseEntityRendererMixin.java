@@ -10,6 +10,7 @@ import net.minecraft.client.render.entity.model.HorseSaddleEntityModel;
 import net.minecraft.client.render.entity.state.HorseEntityRenderState;
 import org.ingobeans.unneglectedhorses.ElytraSaddleFeatureRenderer;
 import org.ingobeans.unneglectedhorses.UnneglectedHorses;
+import org.ingobeans.unneglectedhorses.models.ElytraSaddleModel;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,6 +24,6 @@ public abstract class HorseEntityRendererMixin {
         HorseEntityRenderer thisObject = (HorseEntityRenderer)(Object)this;
         ((LivingEntityRendererAccessor)(LivingEntityRenderer)thisObject).getFeatures().add(new ElytraSaddleFeatureRenderer(thisObject, context.getEquipmentRenderer(), EquipmentModel.LayerType.HORSE_SADDLE, (horseEntityRenderState) -> {
             return ((HorseEntityRenderState)horseEntityRenderState).saddleStack;
-        }, new HorseSaddleEntityModel(context.getPart(UnneglectedHorses.ELYTRA_SADDLE_MODEL))));
+        }, new ElytraSaddleModel(context.getPart(UnneglectedHorses.ELYTRA_SADDLE_MODEL))));
     }
 }

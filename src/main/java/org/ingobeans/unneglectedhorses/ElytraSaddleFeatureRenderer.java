@@ -40,10 +40,10 @@ public class ElytraSaddleFeatureRenderer<S extends LivingEntityRenderState, RM e
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, S livingEntityRenderState, float f, float g) {
         ItemStack itemStack = (ItemStack)this.saddleStackGetter.apply(livingEntityRenderState);
         if (itemStack != null && itemStack.getItem() instanceof ElytraSaddle) {
-            // ill fix this next commit okay
-            Identifier identifier = Identifier.of("wa");
+            //Identifier identifier = Identifier.of(UnneglectedHorses.MOD_ID, "textures/item/elytra_saddle.png");
+            Identifier identifier = Identifier.ofVanilla("textures/entity/equipment/wings/elytra.png");
             VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(identifier), itemStack.hasGlint());
-            model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 0);
+            model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV);
         }
     }
 }
