@@ -17,8 +17,6 @@ import net.minecraft.world.World;
 import org.ingobeans.unneglectedhorses.items.ElytraSaddle;
 import org.ingobeans.unneglectedhorses.items.EmptyHorsePocket;
 import org.ingobeans.unneglectedhorses.items.FilledHorsePocket;
-
-import java.util.Optional;
 import java.util.function.Function;
 
 public class ModItems {

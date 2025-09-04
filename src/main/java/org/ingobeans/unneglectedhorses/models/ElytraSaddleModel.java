@@ -11,8 +11,8 @@ import net.minecraft.client.model.ModelTransform;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.*;
 import net.minecraft.client.render.entity.state.LivingHorseEntityRenderState;
-import net.minecraft.util.math.MathHelper;
 
+@SuppressWarnings({"FieldCanBeLocal", "unused"})
 @Environment(EnvType.CLIENT)
 public class ElytraSaddleModel extends EntityModel<LivingHorseEntityRenderState> {
     private final ModelPart body;
