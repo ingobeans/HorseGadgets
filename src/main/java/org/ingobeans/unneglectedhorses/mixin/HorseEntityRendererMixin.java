@@ -18,12 +18,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(HorseEntityRenderer.class)
 public abstract class HorseEntityRendererMixin {
+    @SuppressWarnings({"unchecked", "rawtypes", "DataFlowIssue"})
     @Inject(method = "<init>",at=@At("TAIL"))
     protected void HorseEntityRenderer(EntityRendererFactory.Context context, CallbackInfo ci) {
-        UnneglectedHorses.LOGGER.info("we mixa de in");
         HorseEntityRenderer thisObject = (HorseEntityRenderer)(Object)this;
-        ((LivingEntityRendererAccessor)(LivingEntityRenderer)thisObject).getFeatures().add(new ElytraSaddleFeatureRenderer(thisObject, context.getEquipmentRenderer(), EquipmentModel.LayerType.HORSE_SADDLE, (horseEntityRenderState) -> {
-            return ((HorseEntityRenderState)horseEntityRenderState).saddleStack;
-        }, new ElytraSaddleModel(context.getPart(UnneglectedHorses.ELYTRA_SADDLE_MODEL))));
+        ((LivingEntityRendererAccessor)(LivingEntityRenderer)thisObject).getFeatures().add(new ElytraSaddleFeatureRenderer(thisObject, context.getEquipmentRenderer(), EquipmentModel.LayerType.HORSE_SADDLE, (horseEntityRenderState) -> ((HorseEntityRenderState)horseEntityRenderState).saddleStack, new ElytraSaddleModel(context.getPart(UnneglectedHorses.ELYTRA_SADDLE_MODEL))));
     }
 }

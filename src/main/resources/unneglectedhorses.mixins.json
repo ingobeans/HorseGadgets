@@ -12,7 +12,6 @@
   "client": [
     "HorseEntityRendererMixin",
     "LivingEntityRendererAccessor",
-    "SaddleFeatureAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

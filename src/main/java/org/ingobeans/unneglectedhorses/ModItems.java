@@ -1,12 +1,8 @@
 package org.ingobeans.unneglectedhorses;
 
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.impl.client.rendering.EntityModelLayerImpl;
-import net.fabricmc.fabric.mixin.client.rendering.EntityModelLayersAccessor;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.item.*;
@@ -21,7 +17,6 @@ import net.minecraft.world.World;
 import org.ingobeans.unneglectedhorses.items.ElytraSaddle;
 import org.ingobeans.unneglectedhorses.items.EmptyHorsePocket;
 import org.ingobeans.unneglectedhorses.items.FilledHorsePocket;
-import org.ingobeans.unneglectedhorses.models.ElytraSaddleModel;
 
 import java.util.Optional;
 import java.util.function.Function;
