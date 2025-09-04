@@ -6,6 +6,9 @@ import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.ArmorMaterials;
+import net.minecraft.item.equipment.EquipmentAsset;
+import net.minecraft.item.equipment.EquipmentAssetKeys;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -17,6 +20,8 @@ import net.minecraft.world.World;
 import org.ingobeans.unneglectedhorses.items.ElytraSaddle;
 import org.ingobeans.unneglectedhorses.items.EmptyHorsePocket;
 import org.ingobeans.unneglectedhorses.items.FilledHorsePocket;
+import org.ingobeans.unneglectedhorses.items.ModArmorMaterials;
+
 import java.util.function.Function;
 
 public class ModItems {
@@ -35,6 +40,7 @@ public class ModItems {
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.EMPTY_HORSE_POCKET));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((itemGroup)->itemGroup.add(ModItems.ELYTRA_SADDLE));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((itemGroup)->itemGroup.add(ModItems.HORSE_SCUBA_GEAR));
 
 
         DispenserBlock.registerBehavior(ModItems.FILLED_HORSE_POCKET, new ItemDispenserBehavior() {
@@ -44,10 +50,13 @@ public class ModItems {
                 ((FilledHorsePocket)stack.getItem()).emptyPocket(world,stack,blockPos);
                 return new ItemStack(ModItems.EMPTY_HORSE_POCKET);
         }});
+
     }
+    public static final RegistryKey<EquipmentAsset> SCUBA_ASSET_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(UnneglectedHorses.MOD_ID, "scuba"));
 
     public static final Item ELYTRA_SADDLE = register("elytra_saddle", ElytraSaddle::new, new Item.Settings().maxCount(1).component(DataComponentTypes.EQUIPPABLE, EquippableComponent.ofSaddle()));
     public static final Item EMPTY_HORSE_POCKET = register("horse_pocket", EmptyHorsePocket::new, new Item.Settings().maxCount(1));
     public static final Item FILLED_HORSE_POCKET = register("filled_horse_pocket", FilledHorsePocket::new, new Item.Settings().maxCount(1));
+    public static final Item HORSE_SCUBA_GEAR = register("horse_scuba_gear", Item::new, new Item.Settings().maxCount(1).horseArmor(ModArmorMaterials.SCUBA));
 
 }
