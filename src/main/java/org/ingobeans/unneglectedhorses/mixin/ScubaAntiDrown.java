@@ -28,6 +28,7 @@ public abstract class ScubaAntiDrown {
                     (thisObject.getVehicle() instanceof AbstractHorseEntity horseEntity && horseEntity.getBodyArmor().getItem() == ModItems.HORSE_SCUBA_GEAR);
 
             if (shouldGetAir) {
+                addStatusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 30, 0, false, false, false));
                 addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 30, 0, false, false, true));
             }
         }
