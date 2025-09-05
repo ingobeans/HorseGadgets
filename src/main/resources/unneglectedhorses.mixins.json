@@ -6,9 +6,10 @@
   "mixins": [
     "AbstractHorseEntityAccessor",
     "ElytraSaddleGliding",
-    "HorseJumping",
     "EntityAntiDismounter",
-    "HorseInteract"
+    "HorseInteract",
+    "HorseJumping",
+    "ScubaAntiDrown"
   ],
   "client": [
     "HorseEntityRendererMixin",
