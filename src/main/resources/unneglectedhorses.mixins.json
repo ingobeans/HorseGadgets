@@ -6,7 +6,8 @@
   "mixins": [
     "AbstractHorseEntityAccessor",
     "ElytraSaddleGliding",
-    "ElytraSaddleJumping",
+    "HorseJumping",
+    "EntityAntiDismounter",
     "HorseInteract"
   ],
   "client": [
