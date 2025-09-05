@@ -22,7 +22,7 @@ public abstract class HorseJumping {
             if (!horseEntity.isOnGround()) {
                 ItemStack saddle = horseEntity.getEquippedStack(EquipmentSlot.SADDLE);
                 ItemStack armor = horseEntity.getBodyArmor();
-                boolean canJumpOverride = (saddle != null && saddle.getItem() instanceof ElytraSaddle) || (armor != null && armor.getItem() == ModItems.HORSE_SCUBA_GEAR);
+                boolean canJumpOverride = (saddle != null && saddle.getItem() instanceof ElytraSaddle) || (armor != null && armor.getItem() == ModItems.HORSE_SCUBA_GEAR && horseEntity.isTouchingWater());
 
                 if (canJumpOverride) {
                     float jumpStrength = ((AbstractHorseEntityAccessor)horseEntity).getJumpStrength();
