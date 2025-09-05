@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.List;
 
 @Mixin(LivingEntityRenderer.class)
-public interface LivingEntityRendererAccessor<T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>>  {
+public interface LivingEntityRendererAccessor<S extends LivingEntityRenderState, M extends EntityModel<? super S>>  {
     @Accessor("features")
     List<FeatureRenderer<S, M>> getFeatures();
 
