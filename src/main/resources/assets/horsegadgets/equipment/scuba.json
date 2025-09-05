@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "horsegadgets:scuba"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "minecraft:scuba"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "minecraft:scuba"
+      }
+    ]
+  }
+}

@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "id": "unneglectedhorses",
+  "id": "horsegadgets",
   "version": "${version}",
-  "name": "UnneglectedHorses",
-  "description": "adds some fun horse mechanics and items",
+  "name": "HorseGadgets",
+  "description": "adds some fun horse gadgets",
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/unneglectedhorses/icon.png",
+  "icon": "assets/horsegadgets/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "org.ingobeans.unneglectedhorses.client.UnneglectedHorsesClient"
+      "org.ingobeans.horsegadgets.client.HorseGadgetsClient"
     ],
     "main": [
-      "org.ingobeans.unneglectedhorses.UnneglectedHorses"
+      "org.ingobeans.horsegadgets.HorseGadgets"
     ]
   },
   "mixins": [
-    "unneglectedhorses.mixins.json"
+    "horsegadgets.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.ingobeans.horsegadgets.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractHorseEntityAccessor",
+    "ElytraSaddleGliding",
+    "EntityAntiDismounter",
+    "HorseInteract",
+    "HorseJumping",
+    "ScubaAntiDrown"
+  ],
+  "client": [
+    "HorseEntityRendererMixin",
+    "LivingEntityRendererAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
