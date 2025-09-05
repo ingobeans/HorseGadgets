@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#L#",
+    "###"
+  ],
+  "key": {
+    "#": "minecraft:turtle_scute",
+    "L": "minecraft:leather_horse_armor"
+  },
+  "result": {
+    "id": "unneglectedhorses:horse_scuba_gear",
+    "count": 1
+  }
+}
